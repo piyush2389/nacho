@@ -1,0 +1,165 @@
+def is_prime(n):
+    if n <= 1:
+        return False
+    elif n == 2:
+        return True
+    elif n % 2 == 0:
+        return False
+    else:
+        for i in range(3, int(n ** 0.5) + 1, 2):
+            if n % i == 0:
+                return False
+        return True
+
+# Test cases
+print(is_prime(2))       # Expected output: True
+print(is_prime(17))      # Expected output: True
+print(is_prime(4))       # Expected output: False
+print(is_prime(15))      # Expected output: False
+//Test Case 1: Negative Number
+
+Input: -7
+Expected Output: False (Negative numbers should not be considered prime)
+Test Case 2: Zero
+
+Input: 0
+Expected Output: False (Zero is not a prime number)
+Test Case 3: Large Even Number
+
+Input: 100
+Expected Output: False (Large even numbers should not be considered prime)
+Test Case 4: Large Prime Number
+
+Input: 104729 (104729 is a prime number)
+Expected Output: True (To check if the code can handle large prime numbers)
+Test Case 5: Decimal Number
+
+Input: 7.5
+Expected Output: False (Non-integer inputs should be handled)
+Test Case 6: String Input
+
+Input: "17"
+Expected Output: False (The code should handle invalid input types)
+Test Case 7: Very Large Number
+
+Input: 99999999999999999999999999999999999999999999999999999999999999999
+Expected Output: False (Test the code's performance with a very large number)
+These test cases cover various scenarios that the code should handle correctly, and they include cases where the code could potentially fail if it doesn't handle them properly.
+
+
+
+
+User
+explain this code package com.gauresh;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Array {
+	public static void main(String[] args) {
+		ArrayList<Integer> arr = new ArrayList<>();
+		Scanner sc = new Scanner(System.in);
+		for (int i = 0; i < 5; i++) {
+			arr.add(sc.nextInt());
+		}
+		arr.forEach(e -> System.out.print(e + "->"));
+		System.out.println();
+		for (int i = 0; i < arr.size(); i++) {
+			int no = arr.get(i);
+			// System.out.println(no);
+			if (no % 5 == 0 && no % 3 == 0) {
+				arr.set(i, -9);
+			} else if (no % 5 == 0)
+				arr.set(i, -4);
+			else if (no % 3 == 0)
+				arr.set(i, -2);
+			else if (no == -1) {
+				while (i < arr.size()) {
+					arr.remove(i);
+					i++;
+				}
+			}
+
+			else
+				arr.set(i, no);
+		}
+		arr.forEach(e -> System.out.print(e + " "));
+		int[] array = { 1, 2, 3, 4, 5 };
+		int num = array.length;
+		System.out.println(num);
+	}
+}
+ChatGPT
+This Java code defines a class named Array with a main method that performs several operations on an ArrayList of integers. Here's an explanation of what the code does step by step:
+
+Import Statements:
+
+java
+Copy code
+package com.gauresh;
+import java.util.ArrayList;
+import java.util.Scanner;
+The code begins by importing necessary Java packages: ArrayList and Scanner from the java.util package. These packages provide classes for working with dynamic arrays and user input.
+
+public class Array:
+
+The code defines a public class named Array.
+public static void main(String[] args):
+
+This is the main method where the program's execution begins.
+ArrayList Initialization:
+
+java
+Copy code
+ArrayList<Integer> arr = new ArrayList<>();
+An empty ArrayList of integers named arr is created to store the user-input numbers.
+User Input:
+
+java
+Copy code
+Scanner sc = new Scanner(System.in);
+for (int i = 0; i < 5; i++) {
+    arr.add(sc.nextInt());
+}
+It uses a Scanner object sc to read integer values from the user and adds them to the ArrayList arr. The loop runs five times to read five integers from the user.
+Printing ArrayList Elements:
+
+java
+Copy code
+arr.forEach(e -> System.out.print(e + "->"));
+System.out.println();
+After reading the integers, it prints the elements of the ArrayList separated by "->" and adds a newline.
+Modifying ArrayList Elements:
+
+java
+Copy code
+for (int i = 0; i < arr.size(); i++) {
+    int no = arr.get(i);
+    // Check conditions and modify elements
+    // ...
+}
+It iterates through the elements of the ArrayList using a for loop. For each element, it stores the value in the no variable and then checks several conditions to modify the elements based on the following rules:
+If the element is divisible by both 5 and 3, it is set to -9.
+If the element is divisible by 5, it is set to -4.
+If the element is divisible by 3, it is set to -2.
+If the element is -1, it removes all elements from that point onwards in the ArrayList.
+Otherwise, the element remains unchanged.
+Printing Modified ArrayList:
+
+java
+Copy code
+arr.forEach(e -> System.out.print(e + " "));
+After modifying the elements, it prints the modified ArrayList with elements separated by spaces.
+Array Declaration and Length:
+
+java
+Copy code
+int[] array = { 1, 2, 3, 4, 5 };
+int num = array.length;
+System.out.println(num);
+Finally, it declares an array of integers array and initializes it with values 1, 2, 3, 4, and 5. It then prints the length of this array, which is 5.
+The code essentially takes five integer inputs from the user, modifies them according to specific conditions, and then prints the modified ArrayList along with the length of another integer array.
+
+
+
+
